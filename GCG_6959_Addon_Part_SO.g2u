@@ -1,0 +1,766 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create(BaseForm)
+Gui.Form..Caption("Add-on parts maintennace")
+Gui.Form..Size(1429,972)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..AlwaysOnTop(False)
+Gui.Form..FontName("Tahoma")
+Gui.Form..FontSize(8.25)
+Gui.Form..ControlBox(True)
+Gui.Form..MaxButton(False)
+Gui.Form..MinButton(True)
+Gui.Form..MousePointer(0)
+Gui.Form..Moveable(True)
+Gui.Form..Sizeable(False)
+Gui.Form..ShowInTaskBar(True)
+Gui.Form..TitleBar(True)
+Gui.Form..BackColor(3329330)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.GSGC_Parent.Create(GsGridControl)
+Gui.Form.GSGC_Parent.Enabled(True)
+Gui.Form.GSGC_Parent.Visible(True)
+Gui.Form.GSGC_Parent.Zorder(0)
+Gui.Form.GSGC_Parent.Size(522,908)
+Gui.Form.GSGC_Parent.Position(3,29)
+Gui.Form.GSGC_Parent.Event(RowCellClick,GSGC_Parent_RowCellClick)
+Gui.Form.GSGC_Child.Create(GsGridControl)
+Gui.Form.GSGC_Child.Enabled(True)
+Gui.Form.GSGC_Child.Visible(True)
+Gui.Form.GSGC_Child.Zorder(0)
+Gui.Form.GSGC_Child.Size(501,909)
+Gui.Form.GSGC_Child.Position(531,29)
+Gui.Form.GSGC_Child.Event(RowCellClick,GSGC_Child_RowCellClick)
+Gui.Form.GSGC_Final.Create(GsGridControl)
+Gui.Form.GSGC_Final.Enabled(True)
+Gui.Form.GSGC_Final.Visible(True)
+Gui.Form.GSGC_Final.Zorder(0)
+Gui.Form.GSGC_Final.Size(311,912)
+Gui.Form.GSGC_Final.Position(1115,26)
+Gui.Form.GSGC_Final.Event(RowCellClick,GSGC_Final_RowCellClick)
+Gui.Form.lbl1.Create(Label,"Parent Part",True,62,14,0,5,8,True,0,"Tahoma",9,,0,0)
+Gui.Form.lbl1.BorderStyle(0)
+Gui.Form.lbl2.Create(Label,"Children Part",True,69,14,0,534,10,True,0,"Tahoma",9,,0,0)
+Gui.Form.lbl2.BorderStyle(0)
+Gui.Form.lbl3.Create(Label,"Final Part List",True,71,14,0,1117,7,True,0,"Tahoma",9,,0,0)
+Gui.Form.lbl3.BorderStyle(0)
+Gui.Form.cmdAdd.Create(Button)
+Gui.Form.cmdAdd.Enabled(True)
+Gui.Form.cmdAdd.Visible(True)
+Gui.Form.cmdAdd.Zorder(0)
+Gui.Form.cmdAdd.Size(75,23)
+Gui.Form.cmdAdd.Position(1037,303)
+Gui.Form.cmdAdd.Caption("Add")
+Gui.Form.cmdAdd.FontName("Tahoma")
+Gui.Form.cmdAdd.FontSize(8.25)
+Gui.Form.cmdAdd.BackColor(32768)
+Gui.Form.cmdAdd.ForeColor(16777215)
+Gui.Form.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.F_AddonParts..Create(BaseForm)
+Gui.F_AddonParts..Caption("Select add-on parts")
+Gui.F_AddonParts..Size(737,393)
+Gui.F_AddonParts..MinX(0)
+Gui.F_AddonParts..MinY(0)
+Gui.F_AddonParts..Position(0,0)
+Gui.F_AddonParts..AlwaysOnTop(False)
+Gui.F_AddonParts..FontName("Tahoma")
+Gui.F_AddonParts..FontSize(8.25)
+Gui.F_AddonParts..ControlBox(True)
+Gui.F_AddonParts..MaxButton(False)
+Gui.F_AddonParts..MinButton(True)
+Gui.F_AddonParts..MousePointer(0)
+Gui.F_AddonParts..Moveable(True)
+Gui.F_AddonParts..Sizeable(False)
+Gui.F_AddonParts..ShowInTaskBar(True)
+Gui.F_AddonParts..TitleBar(True)
+Gui.F_AddonParts..Event(UnLoad,F_AddonParts_UnLoad)
+Gui.F_AddonParts.GSGC_AddonParts.Create(GsGridControl)
+Gui.F_AddonParts.GSGC_AddonParts.Enabled(True)
+Gui.F_AddonParts.GSGC_AddonParts.Visible(True)
+Gui.F_AddonParts.GSGC_AddonParts.Zorder(0)
+Gui.F_AddonParts.GSGC_AddonParts.Size(730,308)
+Gui.F_AddonParts.GSGC_AddonParts.Position(3,34)
+Gui.F_AddonParts.GSGC_AddonParts.Event(RowCellClick,GSGC_AddonParts_RowCellClick)
+Gui.F_AddonParts.GSGC_AddonParts.Event(CellValueChanged,GSGC_AddonParts_CellValueChanged)
+Gui.F_AddonParts.cmdProcess.Create(Button)
+Gui.F_AddonParts.cmdProcess.Enabled(True)
+Gui.F_AddonParts.cmdProcess.Visible(True)
+Gui.F_AddonParts.cmdProcess.Zorder(0)
+Gui.F_AddonParts.cmdProcess.Size(75,23)
+Gui.F_AddonParts.cmdProcess.Position(330,345)
+Gui.F_AddonParts.cmdProcess.Caption("Process")
+Gui.F_AddonParts.cmdProcess.FontName("Tahoma")
+Gui.F_AddonParts.cmdProcess.FontSize(8.25)
+Gui.F_AddonParts.cmdProcess.Event(Click,cmdProcess_Click)
+Gui.F_AddonParts.chkSel_All.Create(CheckBox)
+Gui.F_AddonParts.chkSel_All.Enabled(True)
+Gui.F_AddonParts.chkSel_All.Visible(True)
+Gui.F_AddonParts.chkSel_All.Zorder(0)
+Gui.F_AddonParts.chkSel_All.Size(94,20)
+Gui.F_AddonParts.chkSel_All.Position(5,5)
+Gui.F_AddonParts.chkSel_All.Caption("Select All")
+Gui.F_AddonParts.chkSel_All.FontName("Tahoma")
+Gui.F_AddonParts.chkSel_All.FontSize(7.8)
+Gui.F_AddonParts.chkSel_All.Event(Click,chkSel_All_Click)
+Gui.F_AddonParts.chkEdit_Price.Create(CheckBox)
+Gui.F_AddonParts.chkEdit_Price.Enabled(True)
+Gui.F_AddonParts.chkEdit_Price.Visible(True)
+Gui.F_AddonParts.chkEdit_Price.Zorder(0)
+Gui.F_AddonParts.chkEdit_Price.Size(73,20)
+Gui.F_AddonParts.chkEdit_Price.Position(659,6)
+Gui.F_AddonParts.chkEdit_Price.Caption("Edit price")
+Gui.F_AddonParts.chkEdit_Price.FontName("Tahoma")
+Gui.F_AddonParts.chkEdit_Price.FontSize(8.25)
+Gui.F_AddonParts.chkEdit_Price.Event(Click,chkEdit_Price_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sCustNo.Declare
+Program.External.Include.Library("GCG_6176_PriceCalculation.lib")
+Program.Sub.Preflight.End
+Program.Sub.Main.Start
+'Bryan Pham
+'12/07/2022
+'Customer: Mercedes Textiles
+'Call: MER030-52420221758-0
+'Scope: auto create add-on parts when adding new order lines
+
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+f.ODBC.Connection!con.OpenCompanyConnection
+f.Intrinsic.Control.CallSub(checkTable)
+
+'save button hook
+f.Intrinsic.Control.If(v.Caller.Hook,=,12230)
+	F.Intrinsic.Control.CallSub(loadPart)
+'Program maintenance
+f.Intrinsic.Control.Else
+	f.Intrinsic.Control.CallSub(LoadData)
+	gui.Form..Show
+f.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.GSGC_Parent_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.bSel.Declare
+'select column
+f.Intrinsic.Control.If(v.Args.Column,=,"Sel")
+	v.Local.bSel.Set(v.DataTable.dtParent(v.Args.RowIndex).Sel!FieldVal)
+	f.Data.DataTable.SetValue("dtParent",v.Args.RowIndex,"Sel",v.Local.bSel.Not)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_Parent_RowCellClick.End
+
+
+Program.Sub.GSGC_Child_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.bSel.Declare
+'select column
+f.Intrinsic.Control.If(v.Args.Column,=,"Sel")
+	v.Local.bSel.Set(v.DataTable.dtChild(v.Args.RowIndex).Sel!FieldVal)
+	f.Data.DataTable.SetValue("dtChild",v.Args.RowIndex,"Sel",v.Local.bSel.Not)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_Child_RowCellClick.End
+
+Program.Sub.GSGC_Final_RowCellClick.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	V.Local.sSQL.Declare
+'delete parent and children from the list
+f.Intrinsic.Control.If(v.Args.Column.UCase,=,"DEL")
+	' put in a msg box for confirmation
+	F.Intrinsic.String.Build("Delete from GCG_6959_PARTS_LIST where PARENT = '{0}' and CHILDREN = '{1}'",v.DataTable.dtFinal(v.Args.RowIndex).PARENT!FieldValString,v.DataTable.dtFinal(v.Args.RowIndex).CHILDREN!FieldValString,v.Local.sSQL)
+	f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.Data.Datatable.DeleteRow("dtFinal",v.Args.RowIndex)
+	f.Data.Datatable.AcceptChanges("dtFinal")
+f.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_Final_RowCellClick.End
+
+Program.Sub.LoadData.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.sSQL.Declare
+
+'this sub is to load parent, children and final add-on lists
+f.Intrinsic.Control.If(v.DataTable.dtChild.Exists)
+	f.Data.DataTable.Close("dtChild")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.DataTable.dtFinal.Exists)
+	f.Data.DataTable.Close("dtFinal")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.DataTable.dtParent.Exists)
+	f.Data.DataTable.Close("dtParent")
+f.Intrinsic.Control.EndIf
+
+f.Data.DataTable.CreateFromSQL("dtParent","con","Select distinct cast(0 as bit) as Sel,PART, DESCRIPTION,PRODUCT_LINE from V_INVENTORY_MSTR order by PART;",true)
+f.Data.DataTable.CreateFromSQL("dtChild","con","Select distinct cast(0 as bit) as Sel,PART, DESCRIPTION,PRODUCT_LINE from V_INVENTORY_MSTR order by PART;",true)
+f.Data.DataTable.CreateFromSQL("dtFinal","con","Select PARENT, CHILDREN,'Delete' as Del from GCG_6959_PARTS_LIST order by PARENT,CHILDREN;",true)
+
+f.Intrinsic.Control.CallSub(loadGV)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadData.End
+
+Program.Sub.checkTable.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+
+V.Local.bTable.Declare(Boolean)
+v.Local.sDate_Action.Declare
+v.Local.sFileTarget.Declare
+F.ODBC.Connection!con.TableExists("GCG_6959_PARTS_LIST",V.Local.bTable)
+F.Intrinsic.Control.If(V.Local.bTable,=,False)
+	F.ODBC.Connection!Con.Execute("CREATE TABLE GCG_6959_PARTS_LIST(PARENT CHAR(20),CHILDREN CHAR(20));")
+F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.checkTable.End
+
+Program.Sub.loadGV.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+gui.Form.GSGC_Parent.AddGridviewFromDatatable("gvParent","dtParent")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","Caption","Select")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","AllowEdit","False")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","ReadOnly","True")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","Width","25")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","HeaderHAlignment","Center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","HeaderFontBold",True)
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","HeaderHAlignment","center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","Sel","CellHAlignment","center")
+
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","Caption","Part")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","AllowEdit","False")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","ReadOnly","True")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","Width","30")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","HeaderHAlignment","Center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","HeaderFontBold",True)
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","HeaderHAlignment","center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","Width","55")
+'gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","CellHAlignment","center")
+
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","Caption","Description")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","AllowEdit","False")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","ReadOnly","True")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","Width","30")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","HeaderHAlignment","Center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","HeaderFontBold",True)
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","HeaderHAlignment","center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","DESCRIPTION","Width","100")
+'gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PART","CellHAlignment","center")
+
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","Caption","PL")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","AllowEdit","False")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","ReadOnly","True")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","Width","30")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","HeaderHAlignment","Center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","HeaderFontBold",True)
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","HeaderHAlignment","center")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","Width","40")
+gui.Form.GSGC_Parent.SetColumnProperty("gvParent","PRODUCT_LINE","CellHAlignment","center")
+
+gui.Form.GSGC_Child.AddGridviewFromDatatable("gvChild","dtChild")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","Sel","Caption","Select")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","Sel","AllowEdit","False")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","Sel","ReadOnly","True")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","Sel","Width","30")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","Sel","HeaderHAlignment","Center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","Sel","HeaderFontBold",True)
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","Caption","Part")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","AllowEdit","False")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","ReadOnly","True")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","Width","30")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","HeaderHAlignment","Center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","HeaderFontBold",True)
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","HeaderHAlignment","center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","Width","55")
+'gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","CellHAlignment","center")
+
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","Caption","Description")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","AllowEdit","False")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","ReadOnly","True")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","Width","30")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","HeaderHAlignment","Center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","HeaderFontBold",True)
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","HeaderHAlignment","center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","DESCRIPTION","Width","100")
+'gui.Form.GSGC_Child.SetColumnProperty("gvChild","PART","CellHAlignment","center")
+
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","Caption","PL")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","AllowEdit","False")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","ReadOnly","True")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","Width","30")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","HeaderHAlignment","Center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","HeaderFontBold",True)
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","HeaderHAlignment","center")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","Width","40")
+gui.Form.GSGC_Child.SetColumnProperty("gvChild","PRODUCT_LINE","CellHAlignment","center")
+
+gui.Form.GSGC_Final.AddGridviewFromDatatable("gvFinal","dtFinal")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","Caption","Delete")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","AllowEdit","False")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","ReadOnly","True")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","Width","30")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","HeaderHAlignment","Center")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","HeaderFontBold",True)
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","Del","CellHAlignment","center")
+
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","Caption","Parent")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","AllowEdit","False")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","ReadOnly","True")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","Width","30")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","HeaderHAlignment","Center")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","HeaderFontBold",True)
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","HeaderHAlignment","center")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","PARENT","Width","55")
+
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","Caption","Children")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","AllowEdit","False")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","ReadOnly","True")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","Width","30")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","HeaderHAlignment","Center")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","HeaderFontBold",True)
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","HeaderHAlignment","center")
+gui.Form.GSGC_Final.SetColumnProperty("gvFinal","CHILDREN","Width","55")
+
+
+gui.Form.GSGC_Parent.MainView("gvParent")
+gui.Form.GSGC_Child.MainView("gvChild")
+gui.Form.GSGC_Final.MainView("gvFinal")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.loadGV.End
+
+Program.Sub.Form_UnLoad.Start
+f.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.cmdAdd_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.iCnt.Declare
+v.Local.sSQL.Declare
+v.Local.sDesc.Declare
+
+f.Intrinsic.Control.If(v.DataView.dtParent!dvParent.Exists)
+	f.Data.DataView.Close("dtParent","dvParent")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.DataView.dtChild!dvChild.Exists)
+	f.Data.DataView.Close("dtChild","dvChild")
+f.Intrinsic.Control.EndIf
+
+f.Data.DataView.Create("dtParent","dvParent",22,"Sel = 1",)
+f.Intrinsic.Control.If(v.DataView.dtParent!dvParent.RowCount,>,1,or,v.DataView.dtParent!dvParent.RowCount,=,0)
+	f.Intrinsic.UI.Msgbox("Please ONLY ONE parent!","Attention")
+f.Intrinsic.Control.EndIf
+
+f.Data.DataView.Create("dtChild","dvChild",22,"Sel = 1",)
+f.Intrinsic.Control.If(v.DataView.dtChild!dvChild.RowCount,=,0)
+	f.Intrinsic.UI.Msgbox("Please select at least ONE child!","Attention")
+f.Intrinsic.Control.EndIf
+
+'add parent and children to the final add-on list
+f.Intrinsic.Control.For(v.Local.iCnt,0,v.DataView.dtChild!dvChild.RowCount--,1)
+	f.Data.Datatable.AddRow("dtFinal","PARENT",v.DataView.dtParent!dvParent(0).PART!FieldValTrim,"CHILDREN",v.DataView.dtChild!dvChild(v.Local.iCnt).PART!FieldValTrim)
+	f.Intrinsic.String.Build("Insert into GCG_6959_PARTS_LIST values('{0}','{1}')",v.DataView.dtParent!dvParent(0).PART!FieldValTrim,v.DataView.dtChild!dvChild(v.Local.iCnt).PART!FieldValTrim,v.Local.sSQL)
+	f.ODBC.Connection!con.Execute(v.Local.sSQL)
+f.Intrinsic.Control.Next(v.Local.iCnt)
+
+f.Data.DataTable.SetValue("dtChild",-1,"Sel","False")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.loadPart.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.sPart.Declare
+v.Local.sSQL.Declare
+v.Local.iCnt.Declare
+v.Local.sOrdNo.Declare
+
+'get part from screen
+f.Intrinsic.String.GSSPartString(v.Passed.000052,v.Passed.000053,v.Local.sPart)
+'get order no
+f.Intrinsic.String.Lpad(v.Passed.000060,"0",7,v.Local.sOrdNo)
+'get customer no as we later need it for adding lines to order
+f.Intrinsic.String.Build("select RTRIM(CUSTOMER) from V_ORDER_HEADER where ORDER_NO = '{0}'",v.Local.sOrdNo,v.Local.sSQL)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Global.sCustNo)
+
+f.Intrinsic.Control.If(v.DataTable.dtChildParts.Exists,=,true)
+	f.Data.DataTable.Close("dtChildParts")
+f.Intrinsic.Control.EndIf
+
+'create dt for all the add-on parts based off the parent of the current order lines
+f.Intrinsic.String.Build("Select distinct cast(0 as bit) as Sel,A.CHILDREN,B.DESCRIPTION,'' as LOCATION,'' as PL, '' as UM, cast(0 as float) as QTY, cast(0 as float) as PRICE from GCG_6959_PARTS_LIST A left join V_INVENTORY_MSTR B on A.CHILDREN = B.PART where PARENT = '{0}';",v.Local.sPart,v.Local.sSQL)
+f.Data.DataTable.CreateFromSQL("dtChildParts","con",v.Local.sSQL,true)
+
+'fill in PL
+f.Data.DataTable.CreateFromSQL("dtPartInfo","con","Select PART,PRODUCT_LINE,UM_INVENTORY from V_INVENTORY_MSTR")
+f.Data.Dictionary.createFromDataTable("dPL","dtPartInfo","PART","PRODUCT_LINE")
+f.Data.Dictionary.SetDefaultReturn("dPL","")
+f.Data.DataTable.FillFromDictionary("dtChildParts","dPL","CHILDREN","PL")
+f.Data.Dictionary.Close("dPL")
+'fill in UM
+f.Data.Dictionary.createFromDataTable("dUM","dtPartInfo","PART","UM_INVENTORY")
+f.Data.Dictionary.SetDefaultReturn("dUM","")
+f.Data.DataTable.FillFromDictionary("dtChildParts","dUM","CHILDREN","UM")
+f.Data.Dictionary.Close("dUM")
+'default location to parent's
+f.Data.Datatable.SetValue("dtChildParts",-1,"LOCATION",v.Passed.000054)
+
+'get the price from 6176 lib as they have a unique price scheme for part/ customer/ ship ID
+v.Local.fTempPrice.Declare
+f.Intrinsic.Control.For(v.Local.iCnt,0,v.DataTable.dtChildParts.RowCount--,1)
+	f.Intrinsic.Control.CallSub(GetPrice,"PART",v.DataTable.dtChildParts(v.Local.iCnt).CHILDREN!FieldValTrim,"CUSTOMER",v.Global.sCustNo,"SHIP_TO",v.Passed.000022)
+	f.Data.DataTable.SetValue("dtChildParts",v.Local.iCnt,"PRICE",v.Args.Price)
+	'for testing
+'	f.Intrinsic.Math.Add(v.Local.iCnt,10,v.Local.fTempPrice)
+'	f.Data.DataTable.SetValue("dtChildParts",v.Local.iCnt,"PRICE",v.Local.fTempPrice)
+f.Intrinsic.Control.Next(v.Local.iCnt)
+'if part has add-on, show the grid. Otherwise nothing
+
+f.Intrinsic.Control.If(v.DataTable.dtChildParts.RowCount,>,0)
+
+	gui.F_AddonParts.GSGC_AddonParts.AddGridviewFromDatatable("gvChildParts","dtChildParts")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","Caption","Select")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","ReadOnly","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","Width","25")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","Sel","CellHAlignment","center")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","Caption","Part")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","ReadOnly","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","Width","30")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","Width","55")
+	'gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","CHILDREN","CellHAlignment","center")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","Caption","Description")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","ReadOnly","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","Width","30")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","DESCRIPTION","Width","100")
+	'gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PART","CellHAlignment","center")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","Caption","PL")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","ReadOnly","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","Width","30")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PL","Width","40")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","Caption","UM")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","ReadOnly","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","Width","30")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","UM","Width","40")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","Caption","Quantity")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","AllowEdit","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","ReadOnly","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","QTY","Width","50")
+	'gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PART","CellHAlignment","center")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","Caption","Loc")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","AllowEdit","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","ReadOnly","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","LOCATION","Width","50")
+	
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","Caption","Price")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","ReadOnly","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","HeaderHAlignment","Center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","HeaderFontBold",True)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","HeaderHAlignment","center")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","Width","50")
+	'gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PART","CellHAlignment","center")
+	
+	gui.F_AddonParts.GSGC_AddonParts.MainView("gvChildParts")
+	gui.F_AddonParts..Show
+f.Intrinsic.Control.Else
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.loadPart.End
+
+Program.Sub.F_AddonParts_UnLoad.Start
+f.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+Program.Sub.F_AddonParts_UnLoad.End
+
+Program.Sub.GSGC_AddonParts_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.bSel.Declare
+
+f.Intrinsic.Control.If(v.Args.Column,=,"Sel")
+	v.Local.bSel.Set(v.DataTable.dtChildParts(v.Args.RowIndex).Sel!FieldVal)
+	f.Data.DataTable.SetValue("dtChildParts",v.Args.RowIndex,"Sel",v.Local.bSel.Not)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_AddonParts_RowCellClick.End
+
+Program.Sub.cmdProcess_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.iCnt.Declare
+v.Local.sSQL.Declare
+v.Local.sDesc.Declare
+V.Local.sOrder.Declare
+V.Local.sTemp.Declare
+v.Local.iOrdLn.Declare
+V.Local.sTempFull.Declare
+V.Local.sFileName.Declare
+V.Local.sPath.Declare
+v.Local.sParam.Declare
+V.Local.sLine.Declare
+v.Local.sHold.Declare
+v.Local.iCurLn.Declare
+
+'000060 = Order Number LINES
+F.Intrinsic.String.LPad(V.Passed.000060.Trim, "0", 7, V.Local.sOrder)
+v.Local.iOrdLn.Set(v.Passed.000051)
+
+'need to get the largest order line
+f.Intrinsic.String.Build("Select TOP 1 cast(RECORD_NO as integer) from V_ORDER_LINES where ORDER_NO = '{0}' and RECORD_NO  <> '8000' order by RECORD_NO desc",v.Local.sOrder,v.Local.sSQL)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.iCurLn)
+f.Intrinsic.Math.Div(v.Local.iCurLn,10,v.Local.iCurLn)
+f.Intrinsic.Control.If(v.Local.iCurLn,>,v.Local.iOrdLn)
+	v.Local.iOrdLn.Set(v.Local.iCurLn)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.DataView.dtChildParts!dvChildParts.Exists)
+	f.Data.DataView.Close("dtChildParts","dvChildParts")
+f.Intrinsic.Control.EndIf
+
+f.Data.DataView.Create("dtChildParts","dvChildParts",22,"Sel = True",)
+f.Intrinsic.Control.If(v.DataView.dtChildParts!dvChildParts.RowCount,=,0)
+	f.Intrinsic.UI.Msgbox("No add-on part is selected!","Attention")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.UI.InvokeWaitDialog("Adding order lines for add-on parts...")
+
+'loop thru the selected add-on part and build the string for callwrapper 7020
+f.Intrinsic.Control.For(v.Local.iCnt,0,v.DataView.dtChildParts!dvChildParts.RowCount--,1)
+	f.Intrinsic.Control.If(v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).SEL!FieldVal,=,True,and,v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).QTY!FieldValString,=,0)
+		f.Intrinsic.UI.Msgbox("Selected part has 0 quantity!","Attention")
+		f.Intrinsic.UI.CloseWaitDialog
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+
+'Transaction 1+7+7 "O" for Order, then Customer, Order #
+
+	F.Intrinsic.String.Concat("O",V.Global.sCustNo," ",V.Local.sOrder,"    ",V.Local.sTemp)
+	
+	'Part
+	F.Intrinsic.String.Concat(v.Local.sTemp,v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).CHILDREN!FieldValString,V.Local.sTemp)
+	
+	'Location
+	f.Intrinsic.String.RPad(v.Local.sTemp," ",53,v.Local.sTemp)
+	F.Intrinsic.String.Concat(v.Local.sTemp,v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).LOCATION!FieldValString,V.Local.sTemp)
+	
+	'Product line
+	F.Intrinsic.String.Concat(V.Local.sTemp,v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).PL!FieldValString,V.Local.sTemp)
+
+	'line number 001-999
+	f.Intrinsic.Math.Add(v.Local.iOrdLn,1,v.Local.iOrdLn)
+	F.Intrinsic.String.LPad(v.Local.iOrdLn,"0",3,V.Local.sLine)
+	f.Intrinsic.String.RPad(v.Local.sTemp," ",90,v.Local.sTemp)
+	F.Intrinsic.String.Concat(V.Local.sTemp,V.Local.sLine,V.Local.sTemp)
+	
+	'Line type			
+	F.Intrinsic.String.Concat(V.Local.sTemp,"S",V.Local.sTemp)
+				
+	'quantity 9.4 13
+	f.Intrinsic.String.RPad(v.Local.sTemp," ",94,v.Local.sTemp)
+	f.Intrinsic.String.Format(v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).QTY!FieldValfloat,"0.0000",v.Local.sHold)
+	f.Intrinsic.String.Replace(v.Local.sHold,".","",v.Local.sHold)
+	f.Intrinsic.String.LPad(v.Local.sHold,"0",13,v.Local.sHold)
+	F.Intrinsic.String.Concat(V.Local.sTemp,V.Local.sHold,V.Local.sTemp)
+						
+	'price
+	f.Intrinsic.String.RPad(v.Local.sTemp," ",117,v.Local.sTemp)
+	f.Intrinsic.String.Format(v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).PRICE!FieldValFloat,"0.000000",v.Local.sHold)
+	f.Intrinsic.String.Replace(v.Local.sHold,".","",v.Local.sHold)
+	F.Intrinsic.String.LPad(V.Local.sHold,"0",16,V.Local.sHold)
+	F.Intrinsic.String.Concat(V.Local.sTemp,V.Local.sHold,V.Local.sTemp)
+		
+	'UM
+	F.Intrinsic.String.RPad(V.Local.sTemp," ",283,V.Local.sTemp)
+	F.Intrinsic.String.Concat(V.Local.sTemp,v.DataView.dtChildParts!dvChildParts(v.Local.iCnt).UM!FieldValString,V.Local.sTemp)
+
+	F.Intrinsic.String.Concat(V.local.sTempFull,V.local.sTemp,V.Ambient.NewLine,V.Local.sTempFull)
+f.Intrinsic.Control.Next(v.Local.iCnt)
+F.Intrinsic.String.Concat("SOLINESUPLOAD",V.Caller.Terminal,V.Caller.CompanyCode,V.Local.sFileName)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Local.sFileName,V.Local.sPath)
+F.Intrinsic.File.String2File(V.Local.sPath,V.Local.sTempFull)
+
+	
+'Upload
+f.Intrinsic.String.Build("{0}!*!O!*!{1}",v.local.sOrder,v.Local.sPath,v.Local.sParam)
+F.Global.General.CallWrapperSync(7020,v.Local.sParam)
+		
+f.Intrinsic.UI.CloseWaitDialog
+f.Intrinsic.UI.Msgbox("New sales order lines added.","Succesful")
+f.Intrinsic.Control.End
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdProcess_Click.End
+
+Program.Sub.GSGC_AddonParts_CellValueChanged.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+v.Local.sSQL.Declare
+v.Local.sPart.Declare
+v.Local.sLoc.Declare
+v.Local.sRet.Declare
+v.Local.fQty.Declare
+v.Local.fPrice.Declare
+v.Local.bNum.Declare
+
+gui.F_AddonParts.GSGC_AddonParts.GetCellValueByColumnName("gvChildParts","LOCATION",v.Args.RowIndex,v.Local.sLoc)
+gui.F_AddonParts.GSGC_AddonParts.GetCellValueByColumnName("gvChildParts","CHILDREN",v.Args.RowIndex,v.Local.sPart)
+gui.F_AddonParts.GSGC_AddonParts.GetCellValueByColumnName("gvChildParts","Qty",v.Args.RowIndex,v.Local.fQty)
+gui.F_AddonParts.GSGC_AddonParts.GetCellValueByColumnName("gvChildParts","PRICE",v.Args.RowIndex,v.Local.fPrice)
+
+'check if location is valid
+f.Intrinsic.String.Build("Select * from V_INVENTORY_MSTR where RTRIM(PART) = '{0}' and RTRIM(LOCATION) = '{1}'",v.Local.sPart.Trim,v.Local.sLoc.Trim,v.Local.sSQL)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+f.Intrinsic.Control.If(v.Ambient.ExecuteAndReturnEOF,=,True)
+	f.Intrinsic.UI.Msgbox("Invalid location!","Attention")
+	f.Data.Datatable.SetValue("dtChildParts",v.Args.RowIndex,"LOCATION",v.Passed.000054)
+f.Intrinsic.Control.EndIf
+
+'check if qty and price are number
+f.Intrinsic.Math.IsNumeric(v.Local.fQty,v.Local.bNum)
+f.Intrinsic.Control.If(v.Local.bNum.Not)
+	f.Intrinsic.UI.Msgbox("Quantity must be a number!","Attention")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Math.IsNumeric(v.Local.fPrice,v.Local.bNum)
+f.Intrinsic.Control.If(v.Local.bNum.Not)
+	f.Intrinsic.UI.Msgbox("Quantity must be a number!","Attention")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_AddonParts_CellValueChanged.End
+
+Program.Sub.chkSel_All_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+f.Intrinsic.Control.If(v.Screen.F_AddonParts!chkSel_All.Value,=,1)
+	f.Data.DataTable.SetValue("dtChildParts",-1,"Sel",True)
+f.Intrinsic.Control.Else
+	f.Data.DataTable.SetValue("dtChildParts",-1,"Sel",False)
+f.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.chkSel_All_Click.End
+
+Program.Sub.chkEdit_Price_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+f.Intrinsic.Control.If(v.Screen.F_AddonParts!chkEdit_Price.Value,=,1)
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","AllowEdit","True")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","ReadOnly","False")
+f.Intrinsic.Control.Else
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","AllowEdit","False")
+	gui.F_AddonParts.GSGC_AddonParts.SetColumnProperty("gvChildParts","PRICE","ReadOnly","True")
+f.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.chkEdit_Price_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$20.1.8286.22461$}$1
+${$6$}$bpham$}$20221212133755021$}$Di0riF4Q5RIv6jxva5zSWBaTvp+T0Dt6g5ihEA/5mUujghBz/kKj4wri0Jl19sZx49UxNELbLKs=
+Program.Sub.Comments.End
